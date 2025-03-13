@@ -1,6 +1,6 @@
 # job_tracker_api
 This API will help users track job applications, store relevant job details, and update the status of their applications.
-Tech Stack:
+1. Tech Stack:
 •	Backend Framework: FastAPI (lightweight and great for API design)
 •	Database: PostgreSQL
 •	ORM: SQLAlchemy
@@ -8,7 +8,7 @@ Tech Stack:
 •	Documentation: Swagger/OpenAPI (built-in with FastAPI)
 •	Version Control: GitHub
  
-1. Feature Definition
+2. Feature Definition
 The API will have the following core endpoints:
 •	User Authentication
 o	POST /register → Register a user
