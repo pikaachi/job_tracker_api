@@ -11,11 +11,11 @@ This API will help users track job applications, store relevant job details, and
 2. Feature Definition
 The API will have the following core endpoints:
 •	User Authentication
-o	POST /register → Register a user
-o	POST /login → Authenticate user and return JWT token
+1.	POST /register → Register a user
+2.	POST /login → Authenticate user and return JWT token
 •	Job Applications
-o	POST /jobs/ → Add a new job application
-o	GET /jobs/ → Get all job applications
-o	GET /jobs/{id} → Get a specific job application
-o	PUT /jobs/{id} → Update job application details
+1.	POST /jobs/ → Add a new job application
+2.	GET /jobs/ → Get all job applications
+3.	GET /jobs/{id} → Get a specific job application
+4.	PUT /jobs/{id} → Update job application details
 <img width="468" alt="image" src="https://github.com/user-attachments/assets/b25dd6dc-2e68-4ff2-a92c-7f7c443e834d" />
