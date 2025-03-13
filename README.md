@@ -6,10 +6,9 @@ Tech Stack:
 •	ORM: SQLAlchemy
 •	Authentication: JWT (using pyjwt)
 •	Documentation: Swagger/OpenAPI (built-in with FastAPI)
-•	Deployment: Docker (optional), Render/Heroku/VPS
 •	Version Control: GitHub
  
-1. Define Features
+1. Feature Definition
 The API will have the following core endpoints:
 •	User Authentication
 o	POST /register → Register a user
