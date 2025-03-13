@@ -17,3 +17,15 @@ class Token(BaseModel):
 # Stores decoded token info
 class TokenData(BaseModel):
     username: str | None = None
+
+class JobCreate(BaseModel):
+    company: str
+    position: str
+    status: str = "Applied"
+
+class JobResponse(JobCreate):
+    id: int
+    user_id: int
+
+    class Config:
+        orm_mode = True

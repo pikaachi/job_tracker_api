@@ -10,8 +10,8 @@ load_dotenv()
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 # JWT Secret Key & Algorithm
-SECRET_KEY = os.getenv("SECRET_KEY", "mysecretkey")  # Change this in production!
-ALGORITHM = "HS256"
+SECRET_KEY = os.getenv("SECRET_KEY")  # Change this in production!
+ALGORITHM = os.getenv("ALGORITHM")  # Change this in production!
 ACCESS_TOKEN_EXPIRE_MINUTES = 30  # Token expires in 30 mins
 
 def hash_password(password: str) -> str:
