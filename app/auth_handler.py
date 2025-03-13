@@ -5,7 +5,7 @@ import os
 from dotenv import load_dotenv
 from sqlalchemy.orm import Session
 from app.schemas import TokenData
-from app.database import get_db  # ✅ Use get_db function
+from app.database import get_db  #Use get_db function
 from app.models import User
 
 load_dotenv()
@@ -27,17 +27,17 @@ def get_current_user(token: str = Depends(oauth2_scheme), db: Session = Depends(
     try:
         # Decode JWT token
         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
-        username: str = payload.get("sub")  # ✅ Extract `username` 
+        username: str = payload.get("sub")  # Extract `username` 
         
         if username is None:
             raise credentials_exception
 
-        print(f"✅ Extracted Username: {username}")  # Debugging log
+        #print(f" Extracted Username: {username}")  # Debugging log
 
     except JWTError:
         raise credentials_exception
 
-    # ✅ Query the database by `username` instead of `user_id`
+    # Query the database by username
     user = db.query(User).filter(User.username == username).first()
     if user is None:
         raise credentials_exception

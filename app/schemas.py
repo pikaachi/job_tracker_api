@@ -1,4 +1,7 @@
 from pydantic import BaseModel
+from pydantic import BaseModel
+from typing import Optional
+
 # Validates user registration input
 class UserCreate(BaseModel):
     username: str
@@ -29,3 +32,10 @@ class JobResponse(JobCreate):
 
     class Config:
         orm_mode = True
+
+
+class JobUpdate(BaseModel):
+    company: Optional[str] = None
+    position: Optional[str] = None
+    status: Optional[str] = None
+
