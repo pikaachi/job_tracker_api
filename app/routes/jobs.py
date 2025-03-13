@@ -57,6 +57,30 @@ def get_jobs(
 
     return jobs
 
+@router.get("/{job_id}", response_model=schemas.JobResponse)
+def get_job_by_id(
+    job_id: int,
+    db: Session = Depends(database.get_db),
+    user: models.User = Depends(get_current_user)  # ✅ Authenticated user required
+):
+    """Retrieve a specific job application (only the owner can access)."""
+
+    # ✅ Step 1: Fetch the job and ensure the user owns it
+    job = db.query(models.JobApplication).filter(
+        models.JobApplication.id == job_id,
+        models.JobApplication.user_id == user.id  # ✅ Ensure the user owns the job
+    ).first()
+
+    if not job:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Job not found or not authorized to view"
+        )
+
+    print(f"✅ Retrieved Job: {job.__dict__}")  # Debugging log
+    return job
+
+
 @router.put("/{job_id}", response_model=schemas.JobResponse)
 def update_job(
     job_id: int,
